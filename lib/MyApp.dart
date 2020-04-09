@@ -1,5 +1,6 @@
 import 'package:Kide/pages/ForYou/ForYou.dart';
 import 'package:Kide/providers/getGameDetails.dart';
+import 'package:Kide/widgets/Drawer.dart';
 import 'package:Kide/widgets/HeaderWidget.dart';
 import 'package:flutter/material.dart';
 import 'package:Kide/pages/ContactsPage/ContactList.dart';
@@ -108,16 +109,16 @@ class _MyHomePageState extends State<MyHomePage> {
     
     return Scaffold(
       appBar: indexState.bottomNavIndex != 0 ? AppBar(
-        title: Center(
-          child: Text(
-            _tabNames[indexState.bottomNavIndex],
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              fontFamily: 'Roboto',
-            ),
-          )
+        centerTitle: true,
+        title: Text(
+          _tabNames[indexState.bottomNavIndex],
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            fontFamily: 'Roboto',
+          ),
         ),
       ): null,
+      drawer: AppDrawer(),
       backgroundColor: Color.fromRGBO(18, 18, 18, 1.0),
       body: _tabs[indexState.bottomNavIndex],
       bottomNavigationBar: BottomNav(),
